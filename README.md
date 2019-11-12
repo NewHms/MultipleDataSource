@@ -30,7 +30,8 @@ spring.datasource.test2.driver-class-name=com.mysql.jdbc.Driver
 
 这种方法比较简单，取消掉spring的自动注入数据源，让spring加载我们自己手写的数据源配置，那么就可以达到多数据源的效果了（因为我配置了两个数据源，所以有两个配置文件）。通过配置文件配置的SQLSessionFactory加载mapper路径不一样，就走不一样的数据源。
 在看代码之前先看下目录结构
-![b36cd870c05a379a0bb522544607d5d2.png](evernotecid://C6FAA89E-4A5B-44D0-A821-BA0101E2FCEC/appyinxiangcom/11444250/ENResource/p185)
+[![image]](https://github.com/NewHms/MultipleDataSource/blob/master/images/structure-1.jpg)
+
 这里要注意下，mapper是与java文件放到了一起。没放到resources下。所以要在pom文件中加一点配置。在<build>下要加一点配置。这样就可以访问到mapper了，如果这样的目录结构没有配置<build> 那么在启动时就会报错。
 ```xml
 <build>
@@ -198,7 +199,7 @@ public class DataSourceConfig2 {
 
 那么当mapper在resources下，需要修改下SQLSessionFactory的配置。
 目录结构
-![c19ea63f8c217ee9fe39d5323ed75781.png](evernotecid://C6FAA89E-4A5B-44D0-A821-BA0101E2FCEC/appyinxiangcom/11444250/ENResource/p184)
+[![image]](https://github.com/NewHms/MultipleDataSource/blob/master/images/structure-2.jpg)
 
 只需要修改一下SqlSessionFactory指定的路径（用DataSource1来举例），就可以了。
 > bean.setMapperLocations(new PathMatchingResourcePatternResolver().
