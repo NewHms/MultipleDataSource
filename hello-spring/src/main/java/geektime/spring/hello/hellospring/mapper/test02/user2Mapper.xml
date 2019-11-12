@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="geektime.spring.hello.hellospring.dao.test02.User2Dao">
+    <select id="getUserInfo2" resultType="geektime.spring.hello.hellospring.bean.User">
+        select id,
+        name,
+        sex,
+        age
+        from users
+    </select>
+</mapper>
